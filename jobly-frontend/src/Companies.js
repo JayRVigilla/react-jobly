@@ -34,7 +34,7 @@ function Companies() {
   return (
     <div>
       <Search filter={filterCompanies} />
-      <ul>
+      <ul className="list-group">
         {companyList.map(company => (
           <CompanyCard
             key={company.handle}

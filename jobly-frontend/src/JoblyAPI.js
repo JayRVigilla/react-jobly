@@ -47,7 +47,7 @@ class JoblyApi {
   // endpoint, paramsOrData = {}, verb = "get"
   // sends request for list of all companies
   static async getAllCompanies(searchTerm) {
-    let res = !searchTerm ? await this.request(`companies`) : await this.request('companies', {search: searchTerm})
+    let res = !searchTerm ? await this.request(`companies`) : await this.request('companies', { search: searchTerm })
     return res.companies;
   }
 
@@ -82,7 +82,7 @@ class JoblyApi {
 
   // sends request for list of all jobs
   static async getAllJobs(searchTerm) {
-    let res = !searchTerm ? await this.request(`jobs`) : await this.request('jobs', {search: searchTerm})
+    let res = !searchTerm ? await this.request(`jobs`) : await this.request('jobs', { search: searchTerm })
     return res.jobs
   }
 
@@ -121,18 +121,21 @@ class JoblyApi {
     return res.user;
   }
 
-   /**
-   * Auth Routes
-   * static functionfor making API requests to auth routes
-   */
+  /**
+  * Auth Routes
+  * static functionfor making API requests to auth routes
+  */
 
   static async logIn(username, password) {
-    let res = await this.request(`login`, {username, password}, 'post');
-    console.log(`\n\n\n The value of res from JoblyAPI is `, res);
-    
-    // return res.message;
+    let res = await this.request(`login`, { username, password }, 'post');
     return res;
   }
+
+  static async getUser(username){
+    let res = await this.request(`/users/${username}`);
+    return res;
+  }
+
 }
 
 

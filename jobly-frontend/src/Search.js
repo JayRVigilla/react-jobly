@@ -17,7 +17,7 @@ function Search({ filter }) {
   }
 
   return (
-    <div>
+    <div className="md-form mt-0">
       <form onSubmit={handleSubmit}>
         <label htmlFor="search"></label>
         <input type="text"
@@ -26,6 +26,7 @@ function Search({ filter }) {
           value={searchTerm}
           placeholder="Enter search term..."
           onChange={handleChange}
+          className="form-control"
           />
         <button>Submit</button>
       </form>

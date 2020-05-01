@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import JoblyApi from "./JoblyAPI";
 
 
 /** Component that allows users to Login */
 function Login() {
+
+
   const [formData, setFormData] = useState({ username: "", password: "" });
   const history = useHistory();
 
@@ -20,6 +22,7 @@ function Login() {
     async function logInreq() {
       const res = await JoblyApi.logIn(username, password);
       localStorage.setItem("_token", res.token);
+      localStorage.setItem("currentUser", username);
     }
     logInreq();
   }
@@ -34,14 +37,15 @@ function Login() {
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-inline">
         <label htmlFor="username">Username</label>
         <input type="text"
           id="username"
           name="username"
           value={formData.username}
           placeholder=""
-          onChange={handleChange}>
+          onChange={handleChange}
+          className="mr-sm-2">
         </input>
 
         <label htmlFor="password">Password</label>

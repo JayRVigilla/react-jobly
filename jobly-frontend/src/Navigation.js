@@ -5,7 +5,7 @@ function Navigation() {
 
 
   return (
-    <nav className="Navigation">
+    <nav className="Navigation navbar navbar-light bg-light">
       <NavLink exact to="/">
         Jobly
             </NavLink>

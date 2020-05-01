@@ -22,19 +22,19 @@ function Company() {
       setCompany(newCompany);
     }
     fetchCompany();
-  }, [/**fetch single company from backend upon mount */]);
+  }, [handle]);
 
   return (
-    <div>
+    <div className="container">
       <div>
         <h3>{company.name}</h3>
         <p>{company.description}</p>
       </div>
-      <div>
-        <ul>
+      <div className="row justify-content-md-center">
+        <ul className="list-group list-group-flush">
         {company.jobs.map(job => (
           <JobCard
-            key={job.handle}
+            key={job.id}
             title={job.title}
             salary={job.salary}
             equity={job.equity}

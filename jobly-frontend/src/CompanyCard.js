@@ -10,11 +10,11 @@ function CompanyCard({handle, name, description, logoUrl }) {
   // TODO: make sure logos render, just showing alt 4/29
 
   return (
-    <li>
+    <li className="list-group-item list-group-item-action">
       <Link to={`companies/${handle}`}>
-        <h5>{name}</h5>
-        <p>{description}</p>
-        <img src={logoUrl} alt={`${name} logo`} />
+        <h5 className="card-header">{name} <img src={logoUrl} alt={`${name} logo`} className="float-right"/></h5>
+        <p className="card-text">{description}</p>
+        
       </Link>
     </li>
   );

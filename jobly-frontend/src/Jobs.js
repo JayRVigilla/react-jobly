@@ -25,9 +25,10 @@ function Jobs() {
   )
 
   return (
-    <div>
+    <div className="container">
       <Search filter={filterJobs} />
-      <ul>
+      <div className="row justify-content-lg-center">
+      <ul className="list-group list-group-flush">
         {jobList.map(job => (
           <JobCard
             key={job.id}
@@ -36,6 +37,7 @@ function Jobs() {
             equity={job.equity}
           />))}
       </ul>
+      </div>
     </div>
   )
 }
