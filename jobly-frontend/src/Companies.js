@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import JoblyApi from "./JoblyAPI";
 import CompanyCard from "./CompanyCard";
 import Search from "./Search";
+import "./Companies.css";
 
 
 // NOTE/TODO: Scenario - user enters in URL to "companies/not-a-real-thing" and Rithm demo app
@@ -32,18 +33,22 @@ function Companies() {
   )
 
   return (
-    <div>
-      <Search filter={filterCompanies} />
-      <ul className="list-group">
-        {companyList.map(company => (
-          <CompanyCard
-            key={company.handle}
-            name={company.name}
-            description={company.description}
-            logoUrl={company.logo_url}
-            handle={company.handle}
-          />))}
-      </ul>
+    <div className="Companies">
+      <div>
+        <Search filter={filterCompanies} />
+      </div>
+      <div>
+        <ul className="list-group">
+          {companyList.map(company => (
+            <CompanyCard
+              key={company.handle}
+              name={company.name}
+              description={company.description}
+              logoUrl={company.logo_url}
+              handle={company.handle}
+            />))}
+        </ul>
+      </div>
     </div>
   )
 }
