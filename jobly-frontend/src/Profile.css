@@ -1,0 +1,15 @@
+Form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: right;
+  border-style: outset;
+  width: 66%;
+}
+
+.form{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 8%;
+}

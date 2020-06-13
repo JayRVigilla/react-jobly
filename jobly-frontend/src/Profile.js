@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Form, FormGroup, Label, Input } from "reactstrap";
+import './Profile.css';
 import JoblyApi from "./JoblyAPI";
 
 
 
-/** Renders User Profile with a form to edit 
+/** Renders User Profile with a form to edit
 */
 function Profile() {
   const [formData, setFormData] = useState({
     first_name: "", last_name: "", email: "", photo_url: ""
   });
-  const[currUser, setCurrUser] = useState(localStorage.currentUser)
+  const [currUser, setCurrUser] = useState(localStorage.currentUser)
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -32,65 +34,72 @@ function Profile() {
       setCurrUser(resp.user);
     }
     beginningUserData();
-  }, [localStorage]);
+  }, [/**localStorage*/]);
 
   return (
-    <div>
+    <div className="form">
+      <h3>Edit your profile</h3>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="first_name">First Name</Label>
+          <Input type="text"
+            id="first_name"
+            name="first_name"
+            value={formData.first_name}
+            placeholder={currUser.first_name}
+            onChange={handleChange}
+            className="mr-sm-2">
+          </Input>
+        </FormGroup>
 
-      <h1>YOU GOT TO Profile!</h1>
+        <FormGroup>
+          <Label htmlFor="last_name">Last Name</Label>
+          <Input type="text"
+            id="last_name"
+            name="last_name"
+            value={formData.last_name}
+            placeholder={currUser.last_name}
+            onChange={handleChange}
+            className="mr-sm-2">
+          </Input>
+        </FormGroup>
 
-      <form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="email">Email</Label>
+          <Input type="text"
+            id="email"
+            name="email"
+            value={formData.email}
+            placeholder={currUser.email}
+            onChange={handleChange}
+            className="mr-sm-2">
+          </Input>
+        </FormGroup>
 
-        <label htmlFor="first_name">First Name</label>
-        <input type="text"
-          id="first_name"
-          name="first_name"
-          value={formData.first_name}
-          placeholder={currUser.first_name}
-          onChange={handleChange}
-          className="mr-sm-2">
-        </input>
+        <FormGroup>
+          <Label htmlFor="photo_url">Photo URL</Label>
+          <Input type="text"
+            id="photo_url"
+            name="photo_url"
+            value={formData.photo_url}
+            placeholder={currUser.photo_url}
+            onChange={handleChange}
+            className="mr-sm-2">
+          </Input>
+        </FormGroup>
 
-        <label htmlFor="last_name">Last Name</label>
-        <input type="text"
-          id="last_name"
-          name="last_name"
-          value={formData.last_name}
-          placeholder={currUser.last_name}
-          onChange={handleChange}
-          className="mr-sm-2">
-        </input>
-
-        <label htmlFor="email">Email</label>
-        <input type="text"
-          id="email"
-          name="email"
-          value={formData.email}
-          placeholder={currUser.email}
-          onChange={handleChange}
-          className="mr-sm-2">
-        </input>
-
-        <label htmlFor="photo_url">Photo URL</label>
-        <input type="text"
-          id="photo_url"
-          name="photo_url"
-          value={formData.photo_url}
-          placeholder={currUser.photo_url}
-          onChange={handleChange}
-          className="mr-sm-2">
-        </input>
-
-        <label htmlFor="password">Re-enter Password</label>
-        <input type="text"
-          id="password"
-          name="password"
-          value={formData.password}
-          placeholder=""
-          onChange={handleChange}
-          className="mr-sm-2">
-        </input>
-      </form>
+        <FormGroup>
+          <Label htmlFor="password">Re-enter Password</Label>
+          <Input type="text"
+            id="password"
+            name="password"
+            value={formData.password}
+            placeholder=""
+            onChange={handleChange}
+            className="mr-sm-2">
+          </Input>
+        </FormGroup>
+      </Form>
     </div>
   )
 }

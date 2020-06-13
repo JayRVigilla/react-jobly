@@ -1,27 +1,37 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {Nav} from "reactstrap"
+import "./Navigation.css";
 
 function Navigation() {
 
 
   return (
-    <nav className="Navigation navbar navbar-light bg-light">
-      <NavLink exact to="/">
-        Jobly
-            </NavLink>
-      <NavLink exact to="/companies">
-        Companies
-            </NavLink>
-      <NavLink exact to="/jobs">
-        Jobs
-            </NavLink>
-      <NavLink exact to="/profile">
-        Profile
-            </NavLink>
-      <NavLink exact to="/login">
-        { localStorage._token ? "LogOut" : "Login"}
+    <Nav className="nav">
+      <div className="logo">
+      <NavLink exact to="/" className="link">
+          <b>Jobly</b>
       </NavLink>
-    </nav>
+      </div>
+
+      <div className="links">
+        <NavLink exact to="/companies" className="link">
+          Companies
+      </NavLink>
+
+        <NavLink exact to="/jobs" className="link">
+          Jobs
+      </NavLink>
+
+        <NavLink exact to="/profile" className="link">
+          Profile
+      </NavLink>
+
+        <NavLink exact to="/login" className="link">
+          {localStorage._token && localStorage.currentUser ? "LogOut" : "Login"}
+        </NavLink>
+      </div>
+    </Nav>
   )
 }
 

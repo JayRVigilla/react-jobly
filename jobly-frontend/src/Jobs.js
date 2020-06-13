@@ -21,6 +21,7 @@ function Jobs() {
       setJobList([...newJobs]);
     }
     fetchJobs();
+    console.log("fetched jobs")
   }, [/**fetch all jobs from backend upon mount */]
   )
 

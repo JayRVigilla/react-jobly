@@ -3,7 +3,7 @@ import axios from "axios";
 class JoblyApi {
   static async request(endpoint, paramsOrData = {}, verb = "get") {
     paramsOrData._token = localStorage.getItem("_token");
-    // ( 
+    // (
     //   // for now, hardcode token for "testing", retained in case of emergency
     //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc" +
     //   "3RpbmciLCJpc19hZG1pbiI6ZmFsc2UsImlhdCI6MTU1MzcwMzE1M30." +
@@ -82,6 +82,7 @@ class JoblyApi {
 
   // sends request for list of all jobs
   static async getAllJobs(searchTerm) {
+    console.log("getting all jobs")
     let res = !searchTerm ? await this.request(`jobs`) : await this.request('jobs', { search: searchTerm })
     return res.jobs
   }
