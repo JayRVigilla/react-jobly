@@ -82,7 +82,6 @@ class JoblyApi {
 
   // sends request for list of all jobs
   static async getAllJobs(searchTerm) {
-    console.log("getting all jobs")
     let res = !searchTerm ? await this.request(`jobs`) : await this.request('jobs', { search: searchTerm })
     return res.jobs
   }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import { Card } from "reactstrap";
+import { Card, CardBody, CardHeader } from "reactstrap";
 import "./CompanyCard.css"
 
 
@@ -12,19 +12,15 @@ function CompanyCard({ handle, name, description, logoUrl }) {
   // TODO: make sure logos render, just showing alt 4/29
 
   return (
-    <li>
-      <div className="company-card">
-        <Card>
-          <Link to={`companies/${handle}`}>
-            <div className="head">
-              <h5 className="card-header">{name} <img src={logoUrl} alt={`${name} logo`} className="float-right" /></h5>
-            </div>
-            <p className="card-text">{description}</p>
-
-          </Link>
-        </Card>
-      </div>
-    </li>
+    <Card>
+      <CardBody className="company-card">
+        <Link to={`companies/${handle}`}>
+          <CardHeader className="card-header">{name} <img src={logoUrl} alt={`${name} logo`} />
+          </CardHeader>
+          <p className="card-text">{description}</p>
+        </Link>
+      </CardBody>
+    </Card>
   );
 }
 

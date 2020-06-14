@@ -34,11 +34,10 @@ function Companies() {
 
   return (
     <div className="Companies">
-      <div>
+      <div className="search-bar">
         <Search filter={filterCompanies} />
       </div>
-      <div>
-        <ul className="list-group">
+      <div className="companies-list">
           {companyList.map(company => (
             <CompanyCard
               key={company.handle}
@@ -46,8 +45,8 @@ function Companies() {
               description={company.description}
               logoUrl={company.logo_url}
               handle={company.handle}
+              className="company-card"
             />))}
-        </ul>
       </div>
     </div>
   )

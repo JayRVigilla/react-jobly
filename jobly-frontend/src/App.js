@@ -9,9 +9,7 @@ function App() {
 
   useEffect(() => {
     // setUserToken(localStorage.getItem("_token"));
-    localStorage._token == true ? setUserToken(localStorage.getItem("_token")) : setUserToken("");
-    console.log(`\n\n\n The value of userToken is `, userToken);
-    console.log(`\n\n\n The value of localStorage._token is `, localStorage._token);
+    localStorage._token ? setUserToken(localStorage.getItem("_token")) : setUserToken("");
   }, [userToken]);
 
 

@@ -1,10 +1,15 @@
 .company-card{
-  width: 100%;
+  align-items: initial;
+  border-style: outset;
 }
 
-.head{
+.card-header{
 display: flex;
 justify-content: space-between;
 align-content: flex-start;
 width: 100%;
+}
+
+.card-text{
+  justify-content: flex-start;
 }

@@ -21,23 +21,22 @@ function Jobs() {
       setJobList([...newJobs]);
     }
     fetchJobs();
-    console.log("fetched jobs")
   }, [/**fetch all jobs from backend upon mount */]
   )
 
   return (
     <div className="container">
-      <Search filter={filterJobs} />
-      <div className="row justify-content-lg-center">
-      <ul className="list-group list-group-flush">
-        {jobList.map(job => (
-          <JobCard
-            key={job.id}
-            title={job.title}
-            salary={job.salary}
-            equity={job.equity}
-          />))}
-      </ul>
+      <div className="search-bar">
+        <Search filter={filterJobs} />
+      </div>
+      <div>
+          {jobList.map(job => (
+            <JobCard
+              key={job.id}
+              title={job.title}
+              salary={job.salary}
+              equity={job.equity}
+            />))}
       </div>
     </div>
   )
