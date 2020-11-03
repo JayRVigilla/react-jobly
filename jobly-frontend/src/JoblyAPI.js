@@ -82,7 +82,9 @@ class JoblyApi {
 
   // sends request for list of all jobs
   static async getAllJobs(searchTerm) {
-    let res = !searchTerm ? await this.request(`jobs`) : await this.request('jobs', { search: searchTerm })
+    let res = !searchTerm
+      ? await this.request(`jobs`)
+      : await this.request('jobs', { search: searchTerm });
     return res.jobs
   }
 
@@ -112,14 +114,21 @@ class JoblyApi {
 
   /**
    * Users Routes
-   * static functionfor making API requests to users routes
+   * static function for making API requests to users routes
    */
 
-  // sends PATCH request to update user information at users/username
+  // sends POST request to create new user at users/[username]
+  static async createNewUser(userData) {
+    let res = await this.request('/users', userData, 'post');
+    return res.token
+  }
+
+  // sends PATCH request to update user information at users/[username]
   static async updateUser(userUpdateData, username) {
     let res = await this.request(`users/${username}`, userUpdateData, 'patch');
     return res.user;
   }
+
 
   /**
   * Auth Routes
@@ -135,8 +144,6 @@ class JoblyApi {
     let res = await this.request(`/users/${username}`);
     return res;
   }
-
 }
-
 
 export default JoblyApi;

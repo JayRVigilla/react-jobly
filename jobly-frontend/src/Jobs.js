@@ -18,6 +18,7 @@ function Jobs() {
   useEffect(() => {
     async function fetchJobs() {
       let newJobs = await JoblyApi.getAllJobs();
+      console.log('newJobs \n', newJobs)
       setJobList([...newJobs]);
     }
     fetchJobs();
