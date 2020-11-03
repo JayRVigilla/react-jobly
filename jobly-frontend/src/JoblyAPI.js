@@ -119,7 +119,7 @@ class JoblyApi {
 
   // sends POST request to create new user at users/[username]
   static async createNewUser(userData) {
-    let res = await this.request('/users', userData, 'post');
+    let res = await this.request('users', userData, 'post');
     return res.token
   }
 
@@ -141,7 +141,7 @@ class JoblyApi {
   }
 
   static async getUser(username){
-    let res = await this.request(`/users/${username}`);
+    let res = await this.request(`users/${username}`);
     return res;
   }
 }

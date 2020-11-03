@@ -27,9 +27,11 @@ function NewUserForm() {
 
   function signUpUser(fData) {
     async function signUpUserAPI() {
-      const res = await JoblyApi.createNewUser({fData}); // EDIT
+      const { username, password } = fData;
+      const res = await JoblyApi.createNewUser( username, password);
+      console.log('*****\n\n Value of res in NewUserForm', res, '\n\n *****')
       localStorage.setItem("_token", res.token);
-      localStorage.setItem("currentUser", formData.username);
+      localStorage.setItem("currentUser", username);
     }
     signUpUserAPI();
   }
